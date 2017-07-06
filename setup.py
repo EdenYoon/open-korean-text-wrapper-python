@@ -16,7 +16,7 @@ except:
     from urllib.request import urlretrieve
 
 
-__VERSION__ = "0.2.0"
+__VERSION__ = "0.2.1"
 
 _JAVA_LIB_URLS = [
     "http://central.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2.jar",
@@ -43,7 +43,7 @@ class InstallCommand(install):
 
 
 setup(
-    name="OpenkoreanText",
+    name="OpenKoreanText",
     license="Apache 2.0",
     version=__VERSION__,
     packages=["openkoreantext"],
@@ -56,8 +56,8 @@ setup(
     install_requires=[
         "JPype1"
     ],
-    author="Jaepil Jeong",
-    author_email="jaepil@{nospam}appspand.com",
+    author="Eden Yoon",
+    author_email="yolha79@gmail.com",
     url="https://github.com/EdenYoon/open-korean-text-wrapper-python",
     download_url="https://github.com/EdenYoon/open-korean-text-wrapper-python/tree/master",
     classifiers=[
