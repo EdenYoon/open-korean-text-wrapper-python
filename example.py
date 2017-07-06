@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2014 Jaepil Jeong
-# Copyright (c) 2017 Eden Yoon
+# Copyright (c) 2014 Jaepil Jeong, Originated by
+# Copyright (c) 2017 Eden Yoon, Modified by
 
 from __future__ import print_function
 

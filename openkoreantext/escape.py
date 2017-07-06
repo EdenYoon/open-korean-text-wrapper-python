@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2014 Jaepil Jeong
+# Copyright (c) 2014 Jaepil Jeong, Originated by
+# Copyright (c) 2017 Eden Yoon, Modified by
 
 # Based on part of the tornado framework
 
@@ -9,6 +10,7 @@
 # unicode_literals" have other problems (see PEP 414).  u() can be applied
 # to ascii strings that include \u escapes (but they must not contain
 # literal non-ascii characters).
+
 if type('') is not type(b''):
     def u(s):
         return s

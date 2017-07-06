@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2014 Eden Yoon
+# Copyright (c) 2014 Jaepil Jeong, Originated by
+# Copyright (c) 2017 Eden Yoon, Modified by
 
 import os
 import imp
