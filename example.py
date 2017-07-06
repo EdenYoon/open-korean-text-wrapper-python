@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (c) 2014 Jaepil Jeong
+# Copyright (c) 2017 Eden Yoon
 
 from __future__ import print_function
 
-from twkorean import TwitterKoreanProcessor
+from openkoreantext import OpenKoreanTextProcessor
 
 
 def print_tokens(tokens, end="\n"):
@@ -31,44 +32,22 @@ def print_tokens(tokens, end="\n"):
 
 
 text = u"한국어를 처리하는 예시입니닼ㅋㅋㅋㅋㅋ"
+print('text: ', text)
 
 # Tokenize with normalization + stemmer
-processor = TwitterKoreanProcessor()
-# output: [한국어, 를, 처리, 하다, 예시, 이다, ㅋㅋ]
-tokens = processor.tokenize_to_strings(text)
+processor = OpenKoreanTextProcessor()
+
+nomalized_text = processor.normalize(text)
+print('nomalized_text: ', nomalized_text)
+
+# # output: [
+# #     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하다, Verb, 0),
+# #     (예시, Noun, 0), (이다, Adjective, 0), (ㅋㅋ, KoreanParticle, 0)
+# # ]
+tokens = processor.tokenize(nomalized_text)
+print('tokens:')
 print_tokens(tokens)
 
-# output: [
-#     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하다, Verb, 0),
-#     (예시, Noun, 0), (이다, Adjective, 0), (ㅋㅋ, KoreanParticle, 0)
-# ]
-tokens = processor.tokenize(text)
-print_tokens(tokens)
-
-
-# Tokenize without stemmer
-processor = TwitterKoreanProcessor(stemming=False)
-# output: [한국어, 를, 처리, 하는, 예시, 입니, 다, ㅋㅋ]
-tokens = processor.tokenize_to_strings(text)
-print_tokens(tokens)
-
-# output: [
-#     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하는, Verb, 0),
-#     (예시, Noun, 0), (입니, Adjective, 0), (다, Eomi, 0), (ㅋㅋ, KoreanParticle, 0)
-# ]
-tokens = processor.tokenize(text)
-print_tokens(tokens)
-
-
-# Tokenize with neither normalization nor stemmer
-processor = TwitterKoreanProcessor(normalization=False, stemming=False)
-# output: [한국어, 를, 처리, 하는, 예시, 입니, 닼, ㅋㅋㅋㅋㅋ]
-tokens = processor.tokenize_to_strings(text)
-print_tokens(tokens)
-
-# output: [
-#     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하는, Verb, 0),
-#     (예시, Noun, 0), (입니, Adjective, 0), (닼, Noun, 1), (ㅋㅋㅋㅋㅋ, KoreanParticle, 0)
-# ]
-tokens = processor.tokenize(text)
+tokens = processor.extractPhrases(text)
+print('Extract Phrases:')
 print_tokens(tokens)

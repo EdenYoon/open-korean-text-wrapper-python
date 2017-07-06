@@ -1,4 +1,4 @@
-twkorean
+openkoreantext
 ========
 
-Python interface to [twitter-korean-text](https://github.com/twitter/twitter-korean-text).
+Python interface to [open-korean-text](https://github.com/open-korean-text/open-korean-text).
