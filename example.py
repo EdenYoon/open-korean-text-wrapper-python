@@ -32,20 +32,20 @@ def print_tokens(tokens, end="\n"):
 
 
 text = u"한국어를 처리하는 예시입니닼ㅋㅋㅋㅋㅋ"
-print('text: ', text)
+print('Text: ', text)
 
 # Tokenize with normalization + stemmer
 processor = OpenKoreanTextProcessor()
 
 nomalized_text = processor.normalize(text)
-print('nomalized_text: ', nomalized_text)
+print('Nomalized Text: ', nomalized_text)
 
 # # output: [
 # #     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하다, Verb, 0),
 # #     (예시, Noun, 0), (이다, Adjective, 0), (ㅋㅋ, KoreanParticle, 0)
 # # ]
 tokens = processor.tokenize(nomalized_text)
-print('tokens:')
+print('Tokens:')
 print_tokens(tokens)
 
 tokens = processor.extractPhrases(text)
