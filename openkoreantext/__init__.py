@@ -29,9 +29,6 @@ _OpenKoreanTextProcessor = jpype.JClass("org.openkoreantext.processor.OpenKorean
 
 KoreanToken = namedtuple("KoreanToken", ["text", "pos", "offset", "length", "stem", "unknown"])
 KoreanPhrase = namedtuple("KoreanPhrase", ["text", "offset", "length"])
-KoreanSegment = namedtuple("KoreanSegment", ["start", "length", "token"])
-KoreanSegmentWithText = namedtuple("KoreanSegmentWithText", ["text", "segments"])
-StemmedTextWithTokens = namedtuple("StemmedTextWithTokens", ["text", "tokens"])
 
 
 class OpenKoreanTextProcessor(object):
