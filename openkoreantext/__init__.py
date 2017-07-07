@@ -27,7 +27,7 @@ _init_jvm()
 
 _OpenKoreanTextProcessor = jpype.JClass("org.openkoreantext.processor.OpenKoreanTextProcessor")
 
-KoreanToken = namedtuple("KoreanToken", ["text", "pos", "offset", "length", "stem", "unknown"])
+KoreanToken = namedtuple("KoreanToken", ["text", "pos", "offset", "length"])
 KoreanPhrase = namedtuple("KoreanPhrase", ["text", "offset", "length"])
 
 
@@ -43,9 +43,12 @@ class OpenKoreanTextProcessor(object):
 
         return decode(self._processor.normalize(encode(text)))
 
-    def tokenize(self, text):
+    def tokenize(self, text, normalization=True):
         encode = lambda t: jpype.java.lang.String(t) if isinstance(text, unicode_type) else jpype.java.lang.String(to_unicode(t))
         decode = lambda t: t if isinstance(text, unicode_type) else to_utf8(t)
+
+        if normalization:
+            text = self._processor.normalize(encode(text))
 
         tokens = self._processor.tokenize(encode(text))
         korean_tokens = []
@@ -55,9 +58,7 @@ class OpenKoreanTextProcessor(object):
                 text=decode(t.text()),
                 pos=decode(t.pos().toString()),
                 offset=decode(t.offset()),
-                length=decode(t.length()),
-                stem=t.stem(),
-                unknown=t.unknown()
+                length=decode(t.length())
             ))
         return korean_tokens
 
