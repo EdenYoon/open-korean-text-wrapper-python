@@ -17,7 +17,7 @@ sudo pip install openkoreantext
 
 ## Example
 
-run [example.py](https://github.com/EdenYoon/open-korean-text-wrapper-python/blob/master/example.py).
+Run [example.py](https://github.com/EdenYoon/open-korean-text-wrapper-python/blob/master/example.py).
 
 ```bash
 > python example.py
@@ -28,6 +28,9 @@ Tokens:
 Extract Phrases:
 [(한국어, 0, 3), (처리, 5, 2), (처리하는 예시, 5, 7), (예시, 10, 2)]
 ```
+
+## Test
+* Python `2.7`, `3.5`, `3.6` on `Mac 10.12.5` and `Ubuntu 16.04.2 LTS`
 
 ## Links
 
