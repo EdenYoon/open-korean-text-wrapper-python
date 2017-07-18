@@ -15,6 +15,12 @@ The following tools and libraries are required to build SentencePiece:
 sudo pip install openkoreantext
 ```
 
+## Upgrade
+
+```bash
+sudo pip install openkoreantext --upgrade
+```
+
 ## Example
 
 Run [example.py](https://github.com/EdenYoon/open-korean-text-wrapper-python/blob/master/example.py).
