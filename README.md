@@ -38,6 +38,18 @@ Extract Phrases:
 ## Test
 * Python `2.7`, `3.5`, `3.6` on `Mac 10.12.5` and `Ubuntu 16.04.2 LTS`
 
+## Trouble Shooting
+* If you met similar error with following, use `Java 8`.
+```
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/ubuntu/.pyenv/versions/ko-nlp/lib/python3.6/site-packages/openkoreantext/__init__.py", line 28, in <module>
+    _OpenKoreanTextProcessor = jpype.JClass("org.openkoreantext.processor.OpenKoreanTextProcessor")
+  File "/home/ubuntu/.pyenv/versions/ko-nlp/lib/python3.6/site-packages/jpype/_jclass.py", line 55, in JClass
+    raise _RUNTIMEEXCEPTION.PYEXC("Class %s not found" % name)
+jpype._jexception.RuntimeExceptionPyRaisable: java.lang.RuntimeException: Class org.openkoreantext.processor.OpenKoreanTextProcessor not found```
+```
+
 ## Links
 
 * [open-korean-text-wrapper-python](https://github.com/open-korean-text/open-korean-text-wrapper-python)
