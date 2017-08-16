@@ -3,6 +3,8 @@
 # Copyright (c) 2014 Jaepil Jeong, Originated by
 # Copyright (c) 2017 Eden Yoon, Modified by
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from __future__ import print_function
 
 from openkoreantext import OpenKoreanTextProcessor
