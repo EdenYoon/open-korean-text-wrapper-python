@@ -9,16 +9,18 @@ The following tools and libraries are required to build SentencePiece:
 
 * [JPype1](https://pypi.python.org/pypi/JPype1)
 
-## Intall
+## Install or Upgrade
+
+Install
 
 ```bash
-sudo pip install openkoreantext
+> sudo pip install openkoreantext
 ```
 
-## Upgrade
+or upgrade
 
 ```bash
-sudo pip install openkoreantext --upgrade
+> sudo pip install openkoreantext --upgrade
 ```
 
 ## Example
@@ -36,7 +38,11 @@ Extract Phrases:
 ```
 
 ## Test
-* Python `2.7`, `3.5`, `3.6` on `Mac 10.12.5` and `Ubuntu 16.04.2 LTS`
+* Tested python `2.7`, `3.5`, `3.6` on `Mac 10.12.5` and `Ubuntu 16.04.2 LTS`
+* Install `pytest`
+```bash
+> sudo pip install -r test-requirements.txt
+```
 
 ## Trouble Shooting
 * If you met similar error with following, use `Java 8`.
