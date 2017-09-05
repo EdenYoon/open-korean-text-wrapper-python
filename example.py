@@ -52,9 +52,9 @@ print_tokens(tokens)
 
 # Add nouns to dictionary
 print('\nExample of add_nouns_to_dictionary:')
-tokens = processor.tokenize('오픈텍스트코리안을 사용합니다.')
+tokens = processor.tokenize('오픈코리안텍스트을 사용합니다.')
 print_tokens(tokens)
-print('\nAdded "오픈텍스트코리안" to dictionary as Noun.')
-processor.add_nouns_to_dictionary(['오픈텍스트코리안'])
-tokens = processor.tokenize('오픈텍스트코리안을 사용합니다.')
+print('\nAdded "오픈코리안텍스트" to dictionary as Noun.')
+processor.add_nouns_to_dictionary(['오픈코리안텍스트'])
+tokens = processor.tokenize('오픈코리안텍스트을 사용합니다.')
 print_tokens(tokens)
