@@ -26,6 +26,7 @@ _init_jvm()
 
 
 _OpenKoreanTextProcessor = jpype.JClass("org.openkoreantext.processor.OpenKoreanTextProcessor")
+_OpenKoreanTextProcessorJava = jpype.JClass("org.openkoreantext.processor.OpenKoreanTextProcessorJava")
 
 KoreanToken = namedtuple("KoreanToken", ["text", "pos", "offset", "length"])
 KoreanPhrase = namedtuple("KoreanPhrase", ["text", "offset", "length"])
@@ -35,6 +36,7 @@ class OpenKoreanTextProcessor(object):
     def __init__(self):
         super(OpenKoreanTextProcessor, self).__init__()
         self._processor = _OpenKoreanTextProcessor
+        self._processor_java = _OpenKoreanTextProcessorJava
 
         self.encode = lambda t: jpype.java.lang.String(t) if isinstance(t, unicode_type) else jpype.java.lang.String(to_unicode(t))
         self.decode = lambda t: t if isinstance(t, unicode_type) else to_utf8(t)
@@ -73,3 +75,10 @@ class OpenKoreanTextProcessor(object):
                 length=self.decode(t.length())
             ))
         return korean_tokens
+
+    def add_nouns_to_dictionary(self, nouns):
+        jlist_nouns = jpype.java.util.ArrayList()
+        for noun in nouns:
+            jlist_nouns.add(self.encode(noun))
+
+        self._processor_java.addNounsToDictionary(jlist_nouns)
