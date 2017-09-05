@@ -16,12 +16,12 @@ except:
     from urllib.request import urlretrieve
 
 
-__VERSION__ = "0.2.4"
+__VERSION__ = "0.2.5"
 
 _JAVA_LIB_URLS = [
     "http://central.maven.org/maven2/org/scala-lang/scala-library/2.12.2/scala-library-2.12.2.jar",
     "https://repo1.maven.org/maven2/com/twitter/twitter-text/1.14.7/twitter-text-1.14.7.jar",
-    "https://repo1.maven.org/maven2/org/openkoreantext/open-korean-text/2.1.0/open-korean-text-2.1.0.jar"
+    "https://repo1.maven.org/maven2/org/openkoreantext/open-korean-text/2.1.2/open-korean-text-2.1.2.jar"
 ]
 _PATH_TO_LIB = os.path.join(os.path.abspath(os.path.dirname((__file__))), "openkoreantext/data/lib")
 
