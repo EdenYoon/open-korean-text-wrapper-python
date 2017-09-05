@@ -62,7 +62,7 @@ class OpenKoreanTextProcessor(object):
             ))
         return korean_tokens
 
-    def extractPhrases(self, text, normalization=True):
+    def extract_phrases(self, text, normalization=True):
         encode = lambda t: jpype.java.lang.String(t) if isinstance(text, unicode_type) else jpype.java.lang.String(to_unicode(t))
         decode = lambda t: t if isinstance(text, unicode_type) else to_utf8(t)
 

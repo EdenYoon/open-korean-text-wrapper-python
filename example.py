@@ -50,6 +50,6 @@ tokens = processor.tokenize(nomalized_text)
 print('Tokens:')
 print_tokens(tokens)
 
-tokens = processor.extractPhrases(text)
+tokens = processor.extract_phrases(text)
 print('Extract Phrases:')
 print_tokens(tokens)
