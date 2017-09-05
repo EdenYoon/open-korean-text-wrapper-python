@@ -31,10 +31,18 @@ Run [example.py](https://github.com/EdenYoon/open-korean-text-wrapper-python/blo
 > python example.py
 Text:  한국어를 처리하는 예시입니닼ㅋㅋㅋㅋㅋ
 Nomalized Text:  한국어를 처리하는 예시입니다ㅋㅋㅋ
+
 Tokens:
 [(한국어, Noun, 0, 3), (를, Josa, 3, 1), ( , Space, 4, 1), (처리, Noun, 5, 2), (하는, Verb, 7, 2), ( , Space, 9, 1), (예시, Noun, 10, 2), (입니다, Adjective, 12, 3), (ㅋㅋㅋ, KoreanParticle, 15, 3)]
+
 Extract Phrases:
 [(한국어, 0, 3), (처리, 5, 2), (처리하는 예시, 5, 7), (예시, 10, 2)]
+
+Example of add_nouns_to_dictionary:
+[(오픈, Noun, 0, 2), (텍스트, Noun, 2, 3), (코리안, Noun, 5, 3), (을, Josa, 8, 1), ( , Space, 9, 1), (사용, Noun, 10, 2), (합니다, Verb, 12, 3), (., Punctuation, 15, 1)]
+
+Added "오픈텍스트코리안" to dictionary as Noun.
+[(오픈텍스트코리안, Noun, 0, 8), (을, Josa, 8, 1), ( , Space, 9, 1), (사용, Noun, 10, 2), (합니다, Verb, 12, 3), (., Punctuation, 15, 1)]
 ```
 
 ## Test

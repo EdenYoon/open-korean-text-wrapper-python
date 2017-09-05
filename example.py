@@ -42,14 +42,19 @@ processor = OpenKoreanTextProcessor()
 nomalized_text = processor.normalize(text)
 print('Nomalized Text: ', nomalized_text)
 
-# # output: [
-# #     (한국어, Noun, 0), (를, Josa, 0), (처리, Noun, 0), (하다, Verb, 0),
-# #     (예시, Noun, 0), (이다, Adjective, 0), (ㅋㅋ, KoreanParticle, 0)
-# # ]
 tokens = processor.tokenize(nomalized_text)
-print('Tokens:')
+print('\nTokens:')
 print_tokens(tokens)
 
 tokens = processor.extract_phrases(text)
-print('Extract Phrases:')
+print('\nExtract Phrases:')
+print_tokens(tokens)
+
+# Add nouns to dictionary
+print('\nExample of add_nouns_to_dictionary:')
+tokens = processor.tokenize('오픈텍스트코리안을 사용합니다.')
+print_tokens(tokens)
+print('\nAdded "오픈텍스트코리안" to dictionary as Noun.')
+processor.add_nouns_to_dictionary(['오픈텍스트코리안'])
+tokens = processor.tokenize('오픈텍스트코리안을 사용합니다.')
 print_tokens(tokens)
