@@ -36,47 +36,40 @@ class OpenKoreanTextProcessor(object):
         super(OpenKoreanTextProcessor, self).__init__()
         self._processor = _OpenKoreanTextProcessor
 
-    def normalize(self, text):
-        encode = lambda t: jpype.java.lang.String(t) if isinstance(text, unicode_type)\
-            else jpype.java.lang.String(to_unicode(t))
-        decode = lambda t: t if isinstance(text, unicode_type) else to_utf8(t)
+        self.encode = lambda t: jpype.java.lang.String(t) if isinstance(t, unicode_type) else jpype.java.lang.String(to_unicode(t))
+        self.decode = lambda t: t if isinstance(t, unicode_type) else to_utf8(t)
 
-        return decode(self._processor.normalize(encode(text)))
+    def normalize(self, text):
+        return self.decode(self._processor.normalize(self.encode(text)))
 
     def tokenize(self, text, normalization=True):
-        encode = lambda t: jpype.java.lang.String(t) if isinstance(text, unicode_type) else jpype.java.lang.String(to_unicode(t))
-        decode = lambda t: t if isinstance(text, unicode_type) else to_utf8(t)
-
         if normalization:
-            text = self._processor.normalize(encode(text))
+            text = self._processor.normalize(self.encode(text))
 
-        tokens = self._processor.tokenize(encode(text))
+        tokens = self._processor.tokenize(self.encode(text))
         korean_tokens = []
         for idx in range(tokens.length()):
             t = tokens.apply(jpype.java.lang.Integer(idx))
             korean_tokens.append(KoreanToken(
-                text=decode(t.text()),
-                pos=decode(t.pos().toString()),
-                offset=decode(t.offset()),
-                length=decode(t.length())
+                text=self.decode(t.text()),
+                pos=self.decode(t.pos().toString()),
+                offset=self.decode(t.offset()),
+                length=self.decode(t.length())
             ))
         return korean_tokens
 
     def extract_phrases(self, text, normalization=True):
-        encode = lambda t: jpype.java.lang.String(t) if isinstance(text, unicode_type) else jpype.java.lang.String(to_unicode(t))
-        decode = lambda t: t if isinstance(text, unicode_type) else to_utf8(t)
-
         if normalization:
-            text = self._processor.normalize(encode(text))
+            text = self._processor.normalize(self.encode(text))
 
-        tokens = self._processor.tokenize(encode(text))
+        tokens = self._processor.tokenize(self.encode(text))
         tokens = self._processor.extractPhrases(tokens, True, True)
         korean_tokens = []
         for idx in range(tokens.length()):
             t = tokens.apply(jpype.java.lang.Integer(idx))
             korean_tokens.append(KoreanPhrase(
-                text=decode(t.text()),
-                offset=decode(t.offset()),
-                length=decode(t.length())
+                text=self.decode(t.text()),
+                offset=self.decode(t.offset()),
+                length=self.decode(t.length())
             ))
         return korean_tokens
